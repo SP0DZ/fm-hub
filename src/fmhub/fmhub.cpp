@@ -94,7 +94,7 @@ using namespace Async;
  *
  ****************************************************************************/
 
-#define PROGRAM_NAME "SvxReflector"
+#define PROGRAM_NAME "fmhub"
 
 
 /****************************************************************************
@@ -336,10 +336,10 @@ int main(int argc, const char *argv[])
   else
   {
     cfg_filename = string(home_dir);
-    cfg_filename += "/.svxlink/svxreflector.conf";
+    cfg_filename += "/.fmhub/fmhub.conf";
     if (!cfg.open(cfg_filename))
     {
-      cfg_filename = SVX_SYSCONF_INSTALL_DIR "/svxreflector.conf";
+      cfg_filename = SVX_SYSCONF_INSTALL_DIR "/fmhub.conf";
       if (!cfg.open(cfg_filename))
       {
         cerr << "*** ERROR: Could not open configuration file";
@@ -349,8 +349,8 @@ int main(int argc, const char *argv[])
         }
         cerr << ".\n";
         cerr << "Tried the following paths:\n"
-             << "\t" << home_dir << "/.svxlink/svxreflector.conf\n"
-             << "\t" SVX_SYSCONF_INSTALL_DIR "/svxreflector.conf\n"
+             << "\t" << home_dir << "/.fmhub/fmhub.conf\n"
+             << "\t" SVX_SYSCONF_INSTALL_DIR "/fmhub.conf\n"
              << "Possible reasons for failure are: None of the files exist,\n"
              << "you do not have permission to read the file or there was a\n"
              << "syntax error in the file.\n";

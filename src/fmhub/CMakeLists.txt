@@ -43,7 +43,7 @@ set(LIBS asynccpp asyncaudio asynccore svxmisc ${LIBS})
 
 # Build the executable
 add_executable(fmhub
-  svxreflector.cpp Reflector.cpp ReflectorClient.cpp TGHandler.cpp
+  fmhub.cpp Reflector.cpp ReflectorClient.cpp TGHandler.cpp
 )
 target_link_libraries(fmhub ${LIBS})
 set_target_properties(fmhub PROPERTIES
@@ -61,12 +61,12 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ca-hook.py.in
   )
 
 # Install targets
-install(TARGETS svxreflector DESTINATION ${BIN_INSTALL_DIR})
+install(TARGETS fmhub DESTINATION ${BIN_INSTALL_DIR})
 install_if_not_exists(${CMAKE_CURRENT_BINARY_DIR}/fmhub.conf
   ${SVX_SYSCONF_INSTALL_DIR}
   )
 install_if_not_exists(ca-hook.yaml ${SVX_SYSCONF_INSTALL_DIR})
-install(PROGRAMS svxreflector-status
+install(PROGRAMS fmhub-status
   DESTINATION ${BIN_INSTALL_DIR}
   )
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/ca-hook.py
