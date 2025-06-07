@@ -321,10 +321,17 @@ endif(LADSPA_FOUND)
 # Find the chown utility
 include(FindCHOWN)
 
+# tbc DEL
 set(SVXLINK_USER "svxlink" CACHE STRING "Set SvxLink system user")
 set(SVXLINK_GROUP "svxlink" CACHE STRING "Set SvxLink system group")
+set(FMHUB_USER "fmhub" CACHE STRING "Set FMHUB system user")
+set(FMHUB_GROUP "fmhub" CACHE STRING "Set FMHUB system group")
+# tbc DEL
 message(STATUS "SvxLink user = ${SVXLINK_USER}")
 message(STATUS "SvxLink group = ${SVXLINK_GROUP}")
+message(STATUS "FMHUB user = ${FMHUB_USER}")
+message(STATUS "FMHUB group = ${FMHUB_GROUP}")
+
 
 # Add directories to build
 add_subdirectory(doc)
@@ -333,6 +340,8 @@ add_subdirectory(misc)
 add_subdirectory(echolib)
 add_subdirectory(locationinfo)
 add_subdirectory(svxlink)
+add_subdirectory(fmhub)
+
 if(USE_QT)
   add_subdirectory(qtel)
 endif(USE_QT)
@@ -360,6 +369,8 @@ if (CPACK_GENERATOR STREQUAL "DEB")
   file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/postinst"
     "getent group ${SVXLINK_GROUP} >/dev/null || groupadd -r ${SVXLINK_GROUP}\n"
     "getent passwd ${SVXLINK_USER} >/dev/null || useradd -r -g ${SVXLINK_GROUP} ${SVXLINK_USER}\n"
+    "getent group ${FMHUB_GROUP} >/dev/null || groupadd -r ${FMHUB_GROUP}\n"
+    "getent passwd ${FMHUB_USER} >/dev/null || useradd -r -g ${FMHUB_GROUP} ${FMHUB_USER}\n"
     "${chown_file_commands}")
   set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CMAKE_CURRENT_BINARY_DIR}/conffiles;${CMAKE_CURRENT_BINARY_DIR}/postinst")
 endif(CPACK_GENERATOR STREQUAL "DEB")
