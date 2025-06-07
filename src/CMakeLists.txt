@@ -1,4 +1,7 @@
 ##############################################################################
+# FMHUB - based on SVXLINK, toll will be developet in future as a seperate project
+##############################################################################
+# 
 # SvxLink - A Multi Purpose Voice Services System for Ham Radio Use
 # Copyright (C) 2003-2022 Tobias Blomberg / SM0SVX
 # 
@@ -21,7 +24,7 @@
 # Project setup
 ##############################################################################
 cmake_minimum_required(VERSION 3.5)
-project(svxlink C CXX)
+project(fmhub C CXX)
 #enable_testing()
 
 # The path to the project global include directory
@@ -42,7 +45,7 @@ set(RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 # Optional parts
-option(USE_QT "Build Qt applications and libs" ON)
+option(USE_QT "Build Qt applications and libs" OFF)
 option(BUILD_STATIC_LIBS "Build static libraries in addition to dynamic" OFF)
 
 # The sample rate used internally in SvxLink
@@ -153,37 +156,37 @@ endif(NOT DEFINED INIT_D_INSTALL_DIR)
 
 # Where to install SvxLink config files
 if(NOT DEFINED SVX_SYSCONF_INSTALL_DIR)
-  set(SVX_SYSCONF_INSTALL_DIR ${SYSCONF_INSTALL_DIR}/svxlink)
+  set(SVX_SYSCONF_INSTALL_DIR ${SYSCONF_INSTALL_DIR}/fmhub)
 endif(NOT DEFINED SVX_SYSCONF_INSTALL_DIR)
 
 # Where to install SvxLink spool files
 if(NOT DEFINED SVX_SPOOL_INSTALL_DIR)
-  set(SVX_SPOOL_INSTALL_DIR ${LOCAL_STATE_DIR}/spool/svxlink)
+  set(SVX_SPOOL_INSTALL_DIR ${LOCAL_STATE_DIR}/spool/fmhub)
 endif(NOT DEFINED SVX_SPOOL_INSTALL_DIR)
 
 # Where to put SvxLink variable files
 if(NOT DEFINED SVX_LOCAL_STATE_DIR)
-  set(SVX_LOCAL_STATE_DIR ${LOCAL_STATE_DIR}/lib/svxlink)
+  set(SVX_LOCAL_STATE_DIR ${LOCAL_STATE_DIR}/lib/fmhub)
 endif(NOT DEFINED SVX_LOCAL_STATE_DIR)
 
 # Where to install SvxLink architecture independent files
 if(NOT DEFINED SVX_SHARE_INSTALL_DIR)
-  set(SVX_SHARE_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/svxlink)
+  set(SVX_SHARE_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/fmhub)
 endif(NOT DEFINED SVX_SHARE_INSTALL_DIR)
 
 # Where to install include files
 if(NOT DEFINED SVX_INCLUDE_INSTALL_DIR)
-  set(SVX_INCLUDE_INSTALL_DIR ${INCLUDE_INSTALL_DIR}/svxlink)
+  set(SVX_INCLUDE_INSTALL_DIR ${INCLUDE_INSTALL_DIR}/fmhub)
 endif(NOT DEFINED SVX_INCLUDE_INSTALL_DIR)
 
 # Where to install SvxLink modules
 if(NOT DEFINED SVX_MODULE_INSTALL_DIR)
-  set(SVX_MODULE_INSTALL_DIR ${LIB_INSTALL_DIR}/svxlink)
+  set(SVX_MODULE_INSTALL_DIR ${LIB_INSTALL_DIR}/fmhub)
 endif(NOT DEFINED SVX_MODULE_INSTALL_DIR)
 
 # Where to install SvxLink logic cores
 if(NOT DEFINED SVX_LOGIC_CORE_INSTALL_DIR)
-  set(SVX_LOGIC_CORE_INSTALL_DIR ${LIB_INSTALL_DIR}/svxlink)
+  set(SVX_LOGIC_CORE_INSTALL_DIR ${LIB_INSTALL_DIR}/fmhub)
 endif(NOT DEFINED SVX_LOGIC_CORE_INSTALL_DIR)
 
 # Clear global variables implemented using internal cache
@@ -324,8 +327,8 @@ include(FindCHOWN)
 # tbc DEL
 set(SVXLINK_USER "svxlink" CACHE STRING "Set SvxLink system user")
 set(SVXLINK_GROUP "svxlink" CACHE STRING "Set SvxLink system group")
-set(FMHUB_USER "fmhub" CACHE STRING "Set FMHUB system user")
-set(FMHUB_GROUP "fmhub" CACHE STRING "Set FMHUB system group")
+set(FMHUB_USER "fmhub" CACHE STRING "Set FM-HUB system user")
+set(FMHUB_GROUP "fmhub" CACHE STRING "Set FM-HUB system group")
 # tbc DEL
 message(STATUS "SvxLink user = ${SVXLINK_USER}")
 message(STATUS "SvxLink group = ${SVXLINK_GROUP}")
